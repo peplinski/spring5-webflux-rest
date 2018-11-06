@@ -20,8 +20,8 @@ public class CategoryControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        categoryRepository= Mockito.mock(CategoryRepository.class);
-        categoryController= new CategoryController(categoryRepository);
+        categoryRepository = Mockito.mock(CategoryRepository.class);
+        categoryController = new CategoryController(categoryRepository);
         webTestClient = WebTestClient.bindToController(categoryController).build();
     }
 
