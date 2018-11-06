@@ -32,7 +32,8 @@ public class VendorControllerTest {
                 .willReturn(Flux.just(Vendor.builder().firstName("John").lastName("Rambo").build(),
                         Vendor.builder().firstName("Chuck").lastName("Norris").build()));
 
-        webTestClient.get().uri("/vendors")
+        webTestClient.get()
+                .uri("/vendors")
                 .exchange()
                 .expectBodyList(Vendor.class)
                 .hasSize(2);
@@ -43,7 +44,8 @@ public class VendorControllerTest {
         BDDMockito.given(vendorRepository.findById("someID"))
                 .willReturn(Mono.just(Vendor.builder().firstName("Nick").lastName("Nolte").build()));
 
-        webTestClient.get().uri("/vendors/someID")
+        webTestClient.get()
+                .uri("/vendors/someID")
                 .exchange()
                 .expectBody(Vendor.class);
     }
