@@ -53,26 +53,26 @@ public class CategoryControllerTest {
     }
 
     @Test
-    public void testCreateCategory(){
+    public void testCreateCategory() {
         BDDMockito.given(categoryRepository.saveAll(any(Publisher.class)))
                 .willReturn(Flux.just(Category.builder().description("description").build()));
 
-        Mono<Category> catToSaveMono=Mono.just(Category.builder().description("Some cat").build());
+        Mono<Category> catToSaveMono = Mono.just(Category.builder().description("Some cat").build());
 
         webTestClient.post()
                 .uri("/categories")
-                .body(catToSaveMono,Category.class)
+                .body(catToSaveMono, Category.class)
                 .exchange()
                 .expectStatus()
                 .isCreated();
     }
 
     @Test
-    public void testUpdateCategory(){
+    public void testUpdateCategory() {
         BDDMockito.given(categoryRepository.save(any(Category.class)))
                 .willReturn(Mono.just(Category.builder().build()));
 
-        Mono<Category> catUpdateMono=Mono.just(Category.builder().description("Some cat").build());
+        Mono<Category> catUpdateMono = Mono.just(Category.builder().description("Some cat").build());
 
         webTestClient.put()
                 .uri("/categories/someid")
