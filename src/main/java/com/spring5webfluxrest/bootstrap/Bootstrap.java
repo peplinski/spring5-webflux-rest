@@ -39,51 +39,51 @@ public class Bootstrap implements CommandLineRunner {
     private void loadVendors() {
         vendorRepository.save(Vendor.builder()
                 .firstName("John")
-                .lastName("Rambo").build());
+                .lastName("Rambo").build()).block();
 
         vendorRepository.save(Vendor.builder()
                 .firstName("Chuck")
-                .lastName("Norris").build());
+                .lastName("Norris").build()).block();
 
         vendorRepository.save(Vendor.builder()
                 .firstName("Steven")
-                .lastName("Segal").build());
+                .lastName("Segal").build()).block();
 
         vendorRepository.save(Vendor.builder()
                 .firstName("Bruce")
-                .lastName("Lee").build());
+                .lastName("Lee").build()).block();
 
         vendorRepository.save(Vendor.builder()
                 .firstName("Benny")
-                .lastName("Hill").build());
+                .lastName("Hill").build()).block();
 
         vendorRepository.save(Vendor.builder()
                 .firstName("Jaś")
-                .lastName("Fasola").build());
+                .lastName("Fasola").build()).block();
 
         vendorRepository.save(Vendor.builder()
                 .firstName("Scarlett")
-                .lastName("Johansson").build());
+                .lastName("Johansson").build()).block();
 
         vendorRepository.save(Vendor.builder()
                 .firstName("Emilia")
-                .lastName("Clarke").build());
+                .lastName("Clarke").build()).block();
     }
 
     private void loadCategories() {
         categoryRepository.save(Category.builder()
-                .description("Fruits").build());
+                .description("Fruits").build()).block();
 
         categoryRepository.save(Category.builder()
-                .description("Nuts").build());
+                .description("Nuts").build()).block();
 
         categoryRepository.save(Category.builder()
-                .description("Breads").build());
+                .description("Breads").build()).block();
 
         categoryRepository.save(Category.builder()
-                .description("Meats").build());
+                .description("Meats").build()).block();
 
         categoryRepository.save(Category.builder()
-                .description("Eggs").build());
+                .description("Eggs").build()).block();
     }
 }
