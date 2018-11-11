@@ -4,21 +4,16 @@ import com.spring5webfluxrest.domain.Category;
 import com.spring5webfluxrest.repositories.CategoryRepository;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.BDDMockito;
 import org.mockito.Mockito;
-import org.mockito.verification.VerificationMode;
 import org.reactivestreams.Publisher;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static reactor.core.publisher.Mono.never;
 
 public class CategoryControllerTest {
 
@@ -125,6 +120,6 @@ public class CategoryControllerTest {
                 .expectStatus()
                 .isOk();
 
-       verify(categoryRepository,Mockito.never()).save(any());
+       verify(categoryRepository,never()).save(any());
     }
 }
